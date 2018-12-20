@@ -19,8 +19,8 @@
         for(var col=0; col<grid[1]; col++) {
             var block = {
                 id: generateBlockNumber(row, col),
-                left: (offset.left + col * 159.5) + (row%2 !== 0 ? 80 : 0),
-                top: offset.top + row * 137.7,
+                left: (offset.left + col * 159) + (row%2 !== 0 ? 80 : 0),
+                top: offset.top + row * 138,
                 missing: true
             };
             blocks[block.id] = block;
@@ -59,19 +59,25 @@
 
         for(var blockNumber in blocks) {
             var block = blocks[blockNumber];
-
+/*<svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="159px" height="187px">
+<path fill-rule="evenodd"  stroke="rgb(0, 0, 0)" stroke-width="0px" stroke-dasharray="0, 0" stroke-linecap="butt" stroke-linejoin="miter" fill="rgb(188, 181, 181)"
+ d="M79.494,186.991 L0.002,140.244 L0.002,46.751 L79.494,0.005 L158.987,46.751 L158.987,140.244 L79.494,186.991 Z"/>
+</svg>*/
             // Create hexagon path
             var hexagon = createSvgElement('path', {
                 'id': 'b' + blockNumber,
                 'class': 'ks_hexblock' + (block.missing ? ' missing' : ''),
                 'd': [
-                    ['M'+(block.left+79),block.top+182].join(','),
-                    ['L'+(block.left),block.top+136].join(','),
-                    ['L'+(block.left),block.top+47].join(','),
+                    ['M'+(block.left+79),block.top+186].join(','),
+                    ['L'+(block.left),block.top+140].join(','),
+                    ['L'+(block.left),block.top+46].join(','),
                     ['L'+(block.left+79),block.top+0].join(','),
-                    ['L'+(block.left+157),block.top+47].join(','),
-                    ['L'+(block.left+157),block.top+136].join(','),
-                    ['L'+(block.left+79),block.top+182].join(','),
+                    ['L'+(block.left+158),block.top+46].join(','),
+                    ['L'+(block.left+158),block.top+140].join(','),
+                    ['L'+(block.left+79),block.top+186].join(','),
                     ,'Z'].join(' ')
             });
 
