@@ -10,7 +10,6 @@ body {
     max-width: 1200px;
     width: 100%;
 }
-
 svg#hexmap {
     background: url(hexa.png);
     background-size: contain;
@@ -25,15 +24,24 @@ path.ks_hexblock:hover {
     fill: white;
     cursor: pointer;
 }
+path.ks_hexblock.missing {
+    fill: black;
+    opacity: 0.5;
+}
+path.ks_hexblock.missing:hover {
+    fill: black;
+    opacity: 0;
+}
 text.ks_hexblock_indicator_shadow {
     fill: black;
-    font-size: 3em;
+    pointer-events: none;
+    font-size: 30px;
 }
 text.ks_hexblock_indicator {
     fill: white;
-    font-size: 3em;
+    pointer-events: none;
+    font-size: 30px;
 }
 text.ks_hexblock_indicator.missing {
     fill: white;
-}
 }
