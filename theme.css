@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+* {
+    box-sizing: border-box;
+}
+.chrome {
+    position: relative;
+    margin: auto auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+svg#hexmap {
+    background: url(hexa.png);
+    background-size: contain;
+}
+path.ks_hexblock {
+    opacity: 0;
+    fill: white;
+    box-shadow: 0px 0px 30px black;
+}
+path.ks_hexblock:hover {
+    opacity: 0.3;
+    fill: white;
+    cursor: pointer;
+}
+text.ks_hexblock_indicator_shadow {
+    fill: black;
+    font-size: 3em;
+}
+text.ks_hexblock_indicator {
+    fill: white;
+    font-size: 3em;
+}
+text.ks_hexblock_indicator.missing {
+    fill: white;
+}
+}
