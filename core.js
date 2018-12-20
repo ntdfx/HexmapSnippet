@@ -59,13 +59,7 @@
 
         for(var blockNumber in blocks) {
             var block = blocks[blockNumber];
-/*<svg 
- xmlns="http://www.w3.org/2000/svg"
- xmlns:xlink="http://www.w3.org/1999/xlink"
- width="159px" height="187px">
-<path fill-rule="evenodd"  stroke="rgb(0, 0, 0)" stroke-width="0px" stroke-dasharray="0, 0" stroke-linecap="butt" stroke-linejoin="miter" fill="rgb(188, 181, 181)"
- d="M79.494,186.991 L0.002,140.244 L0.002,46.751 L79.494,0.005 L158.987,46.751 L158.987,140.244 L79.494,186.991 Z"/>
-</svg>*/
+
             // Create hexagon path
             var hexagon = createSvgElement('path', {
                 'id': 'b' + blockNumber,
