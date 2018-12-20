@@ -2,7 +2,7 @@
 
     function createSvgElement(node, attr) {
         var el =  document.createElementNS('http://www.w3.org/2000/svg', node);
-        for (var key in attr) el.setAttributeNS(null, key, attr[key]);
+        for (var key in attr) el.setAttribute(key, attr[key]);
         return el;
     }
 
@@ -13,7 +13,6 @@
 
     // Generate hexgrid
     var grid = [12,12];
-    var blockNumberingCurr = 0;
     var blocks = window.hexblocks = {};
     var offset = {left: 27, top: 15};
     for(var row=0; row<grid[0]; row++) {
@@ -28,8 +27,36 @@
         }
     }
 
-    function generateMap() {
-        var hexmap = document.getElementById('hexmap');
+    window.generateMap = function(params) {
+
+        if (!(params.container instanceof HTMLElement)) {
+            throw new Error('Container not found.');
+        }
+
+        if (params.data && typeof params.data === 'object') {
+            for (var key in params.data) {
+                if (!blocks[key]) {
+                    throw new Error('Hexblock ID "'+key+'" is out of boundary.');
+                }
+                Object.assign(blocks[key], params.data[key]);
+            }
+        }
+
+        if (typeof params.createUrl !== 'function') {
+            params.createUrl = function(block) {
+                return block.id + '.html';
+            };
+        }
+
+        var hexmap = createSvgElement('svg', {
+            'xmlns': 'http://www.w3.org/2000/svg',
+            'width': '100%',
+            'id': 'hexmap',
+            'viewBox': '0 0 2042 1728',
+        });
+
+        params.container.appendChild(hexmap);
+
         for(var blockNumber in blocks) {
             var block = blocks[blockNumber];
 
@@ -53,7 +80,7 @@
                 hexmap.appendChild(hexagon);
             } else {
                 var link = createSvgElement('a', {
-                    'href': block.missing ? '' : generateURIForHexblock(block),
+                    'href': block.missing ? '' : params.createUrl(block),
                     'target': '_blank',
                 });
                 link.appendChild(hexagon);
@@ -84,9 +111,5 @@
 
         }
     }
-
-    setTimeout(function(){
-        generateMap();
-    });
 
 })();

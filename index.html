@@ -5,23 +5,24 @@
     <link rel="stylesheet" type="text/css" href="theme.css">
 </head>
 <body>
-<div class="chrome">
-    <svg id="hexmap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 2042 1728"></svg>
-</div>
+<div id="chrome"></div>
 
 <script type="text/javascript" src="core.js"></script>
 <script type="text/javascript">
-    
-    function generateURIForHexblock(block) {
-        return block.id + '.html';
-    }
 
-    // Modifying the hexblock
-    hexblocks['0411'].missing = false;
-    hexblocks['0203'].missing = false;
-    hexblocks['0101'].missing = false;
-    hexblocks['1201'].missing = false;
-
+    generateMap({
+        container: document.getElementById('chrome'),
+        createUrl: function(block) {
+            if (block.url) return block.url;
+            return block.id + '.html';
+        },
+        data: {
+            '0101': {missing: false, url: 'customUrl.html'},
+            '0501': {missing: false},
+            '0809': {missing: false},
+            '0109': {missing: false},
+        },
+    });
 
 </script>
 </body>

@@ -4,7 +4,7 @@ body {
 * {
     box-sizing: border-box;
 }
-.chrome {
+#chrome {
     position: relative;
     margin: auto auto;
     max-width: 1200px;
