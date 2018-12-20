@@ -65,13 +65,13 @@
                 'id': 'b' + blockNumber,
                 'class': 'ks_hexblock' + (block.missing ? ' missing' : ''),
                 'd': [
-                    ['M'+(block.left+77),block.top+180].join(','),
-                    ['L'+(block.left),block.top+134].join(','),
-                    ['L'+(block.left),block.top+45].join(','),
-                    ['L'+(block.left+77),block.top+0].join(','),
-                    ['L'+(block.left+155),block.top+45].join(','),
-                    ['L'+(block.left+155),block.top+134].join(','),
-                    ['L'+(block.left+77),block.top+180].join(','),
+                    ['M'+(block.left+79),block.top+182].join(','),
+                    ['L'+(block.left),block.top+136].join(','),
+                    ['L'+(block.left),block.top+47].join(','),
+                    ['L'+(block.left+79),block.top+0].join(','),
+                    ['L'+(block.left+157),block.top+47].join(','),
+                    ['L'+(block.left+157),block.top+136].join(','),
+                    ['L'+(block.left+79),block.top+182].join(','),
                     ,'Z'].join(' ')
             });
 
